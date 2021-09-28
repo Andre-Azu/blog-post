@@ -44,11 +44,29 @@ def sign_up():
 
     return render_template("sign_up.html" ,text="Hello new user :)",user=current_user)
 
-
-@auth.route('/login')
+@auth.route('/login',methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
-@auth.route('/logout')
+    #to login users
+    if request.method == 'POST':
+        email=request.form.get('email')
+        password=request.form.get('password')
+
+        user=User.query.filter_by(email=email).first()
+        if user:
+            if check_password_hash(user.password, password):
+                flash("logged in succesfully", category='success')
+                login_user(user, remember=True)
+                #remember true ensures the user remains logged in as long as the server is still running
+                return redirect(url_for('views.home'))  
+            else:
+                flash("incorrect password, try again", category='error')
+        else:
+            flash("account does not exist.", category='error')
+    return render_template("login.html", text="Welcome back ", user=current_user)
+
+@login_required
+# @login_required decorator ensures that the user was alreaady logged in so as to be logged out later.
 def logout():
-    return render_template("home.html")
+    logout_user()
+    return redirect(url_for('auth.login'))
 
