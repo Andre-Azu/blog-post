@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../static/login.css">
 {% extends "base.html" %}
 {% block title %} Login page {% endblock %}
 
@@ -8,16 +9,16 @@
 
 <form method="POST">
 <!-- method "post" sends data to the back-end -->
-    <h3 align="center"> Login!</h3>
+    <h3 align="center" style='font-size: 50px;'> Login!</h3>
     <div class="form-group">
-        <label for="email">Email Address:</label>
+        <label for="email" style='font-size: 45px;'>Email Address:</label>
         <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
         <!-- the "name" in the above code is what becomes an attribute in the backend -->
-        <label for="password">Enter Password:</label>
+        <label for="password" style='font-size: 42px;'>Enter Password:</label>
         <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
     </div>
     <br>
-    <button type="submit" class="btn-outline-primary" > Submit</button>
+    <button type="submit" class="btn-outline-info" > Submit</button>
 
 </form>
 {% endblock %}
