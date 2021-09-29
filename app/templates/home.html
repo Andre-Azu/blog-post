@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 align='center'>Blogs</h1>
+<h1 align='center'>My Blogs</h1>
 <ul class='list-group list-group-flush' id="blogs">
     {% for blog in user.blogs%}
     <li class='list-group-item'>{{blog.data}}
@@ -27,9 +27,14 @@
         <button class='btn-outline-info' type='submit'>Add blog</button>
     </div>
 </form>
-<p style="font-size:large;">
-    {{data.author}}
+<p align='center' style="font-size: 28px;">
     {{data.quote}}
+    <br />
+
+    <div align='right'>
+        <small>∼∼{{data.author}}</small>
+    </div>
+    
     <a href="{{data.permalink}}">Learn more </a>
 </p>
 
