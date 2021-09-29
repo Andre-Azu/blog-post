@@ -1,4 +1,4 @@
-# Andre Azu Blog App
+# Andre Azu Quotes and Blogs
 #### This is an app where both users and witers can come an view blogs and quotes. 2021 Version
 #### By Andre Azu
 
