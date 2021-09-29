@@ -3,6 +3,7 @@
 #### By Andre Azu
 
 ## Live link
+https://andre-azu-quotes-and-blogs.herokuapp.com/
 
 ## Description
 This is an app whereby a user and a blogger come together, post quotes and blogs, then the blogs and quotes can be upvoted, downvoted or comented on.
