@@ -63,7 +63,7 @@ def sign_up():
             new_user=User(email=email,password=generate_password_hash(password1, method='sha256'),first_name=first_name)
             db.session.add(new_user)
             db.session.commit()
-            login_user(user, remember=True)
+            login_user(new_user, remember=True)
             #add user to database
             flash('account created',category='success')
             #to redirect the user to the homepage of the website, 
