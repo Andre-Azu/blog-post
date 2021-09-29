@@ -25,3 +25,4 @@ class User(db.Model, UserMixin):
     first_name=db.Column(db.String(150))
     #linking the user to the blogs themseselves 
     blogs=db.relationship('Blog')
+
