@@ -1,6 +1,7 @@
 ## where users will be navigating to
 # this import below says that is file is a blueprint of the application that means it has a bunch of roots and urls' inside it
 # it allows us to define views in multiple files.
+from .request import get_quote
 from flask import Blueprint,render_template,request,flash,jsonify
 from flask_login import login_required,current_user
 from .models import Blog
@@ -15,6 +16,8 @@ views = Blueprint('views',__name__)
 @views.route('/', methods=['GET', 'POST'])
 @login_required
 def home():
+    data=get_quote()
+
     if request.method == 'POST':
         blog=request.form.get('blog')
 
@@ -26,7 +29,7 @@ def home():
             db.session.commit()
             flash("Blog added!", category="success")
 
-    return render_template("home.html", user=current_user)
+    return render_template("home.html",data=data, user=current_user)
 
 @views.route('/delete-blog', methods=['POST'])
 def delete_blog():
